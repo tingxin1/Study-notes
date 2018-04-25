@@ -1,0 +1,12 @@
+syntax on
+set nu
+set mouse=a
+set tabstop=4
+set showcmd
+set showmatch
+set ruler
+set autoindent
+set cindent
+set smartindent
+set termencoding=utf-8
+filetype on
