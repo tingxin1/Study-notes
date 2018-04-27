@@ -2,8 +2,36 @@
 
 大学期间，免不了会接触Linux系统。我在大一就听老师提及，但是我的电脑硬件和Linux系统有些不兼容而且至今还没确定到底是哪的原因（可能是显卡）。在经历过无数次折腾后（这期间我试了四五个我所知道的Linux发行版）我终于放弃了在物理机上装Linux而转用虚拟机和服务器。（说多了都是泪）
 
+## oh-my-zsh
+这是我使用过的做好用的终端，网上也有很多人推荐这个终端。
+
+#### 安装比较简单
+
+1. 首先确保联网并已经安装zsh和git，没有安装的话使用下面命令安装
+
+    ```sudo apt install zsh git -y```   #For Ubuntu/Debian
+
+    ```sudo yum install zsh git -y```   #For Centos
+
+2. 从GitHub上下载并启用oh-my-zsh
+
+    ```sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"```
+
+    启用时需要输入一下用户密码。
+
+3. 设置oh-my-zsh为默认终端
+
+    ```chsh -s /bin/zsh```
+    
+    再次输入密码即可完成。
+
+#### 配置
+
+oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件
+
+
 ## Anaconda
-- 创建一个名为python34的环境，指定Python版本是3.4（不用管是3.4.x，conda会为我们自动寻找3.4.x中的最新版本）
+- 创建一个名为env_name的环境，指定Python版本是3.*（不用管是3.*.x，conda会为我们自动寻找3.*.x中的最新版本）
 
     ```conda create --name env_name python=3.*```
  
