@@ -27,7 +27,34 @@
 
 #### 配置
 
-oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件
+oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件(没有的话新建即可)。在*一些配置文件*文件夹下有简单的配置样例。
+
+## screen
+screen是linux下的一种多重视窗管理程序。在远程登录Linux服务器进行操作时非常实用。在使用telnet或SSH远程登录linux时，如果连接非正常中断，正在运行的程序也会被杀死，重新连接时，系统将开一个新的session，无法恢复原来的session.screen命令可以解决这个问题。Screen工具是一个终端多路转接器，在本质上，这意味着你能够使用一个单一的终端窗口运行多终端的应用。
+
+```screen -S name```	#Create a new screen
+
+```screen -r name```	#Back to closed screen
+
+```screen -ls```		#list all screens
+
+```Ctrl+a+d```		    #save and exit
+
+```exit```			    #exit screen
+
+```screen -wipe name```	#delete screen
+
+让每个screen会话窗口有单独的日志文件。
+在screen配置文件/etc/screenrc最后添加下面一行：
+
+```logfile /tmp/screenlog_%t.log```
+
+%t是指window窗口的名称，对应screen的-t参数。所以我们启动screen的时候要指定窗口的名称
+
+```screen -L -t window1 -dmS test```
+
+的意思是启动test会话，test会话的窗口名称为window1。屏幕日志记录在/tmp/screenlog_window1.log。如果启动的时候不加-L参数，在screen session下按ctrl+a H，日志也会记录在/tmp/screenlog_window1.log。
+
 
 
 ## Anaconda
