@@ -3,14 +3,14 @@
 大学期间，免不了会接触Linux系统。我在大一就听老师提及，但是我的电脑硬件和Linux系统有些不兼容而且至今还没确定到底是哪的原因（可能是显卡）。在经历过无数次折腾后（这期间我试了四五个我所知道的Linux发行版）我终于放弃了在物理机上装Linux而转用虚拟机和服务器。（说多了都是泪）
 <!-- TOC -->
 
-- [我所知道的Linux](#%E6%88%91%E6%89%80%E7%9F%A5%E9%81%93%E7%9A%84linux)
+- [我所知道的Linux](#我所知道的linux)
     - [oh-my-zsh](#oh-my-zsh)
-            - [安装比较简单](#%E5%AE%89%E8%A3%85%E6%AF%94%E8%BE%83%E7%AE%80%E5%8D%95)
-            - [配置](#%E9%85%8D%E7%BD%AE)
+            - [安装比较简单](#安装比较简单)
+            - [配置](#配置)
     - [screen](#screen)
     - [Anaconda](#anaconda)
-    - [Transmission(Linux下的BT下载工具)](#transmissionlinux%E4%B8%8B%E7%9A%84bt%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7)
-    - [一些命令行技巧](#%E4%B8%80%E4%BA%9B%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%8A%80%E5%B7%A7)
+    - [Transmission(Linux下的BT下载工具)](#transmissionlinux下的bt下载工具)
+    - [一些命令行技巧](#一些命令行技巧)
         - [C](#c)
         - [H](#h)
         - [P](#p)
@@ -18,7 +18,7 @@
 
 <!-- /TOC -->
 ## oh-my-zsh
-这是我使用过的做好用的终端，网上也有很多人推荐这个终端。
+这是我使用过的最好用的终端，网上也有很多人推荐这个终端。
 
 #### 安装比较简单
 
@@ -155,7 +155,8 @@ Transmission 是最流行的基于图形界面的 BitTorrent 客户端之一。t
 
 ### P
 1. pv命令
-    https://www.jianshu.com/p/64becdd8927c
+
+    Pipe Viewer工具监控通过管道的数据的进度信息, 已消耗的时间, 进度条显示的完成百分比, 当前管道的吞吐量, 已传输的数据量, 预计完成的时间等。详见：[利用pv命令监视数据的处理进度](https://www.jianshu.com/p/64becdd8927c)
 ### S
 1. sudo!! 命令
 
