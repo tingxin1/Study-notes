@@ -12,3 +12,5 @@
 
 ## Pytorch
 1. [A detailed example of how to generate your data in parallel with PyTorch](https://stanford.edu/~shervine/blog/pytorch-how-to-generate-data-parallel)
+=======
+2. [零基础学SVM—Support Vector Machine(一)](https://zhuanlan.zhihu.com/p/24638007)
