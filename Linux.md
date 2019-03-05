@@ -4,20 +4,37 @@
 <!-- TOC -->
 
 - [我所知道的Linux](#我所知道的linux)
-    - [oh-my-zsh](#oh-my-zsh)
-            - [安装比较简单](#安装比较简单)
-            - [配置](#配置)
-    - [screen](#screen)
-    - [Anaconda](#anaconda)
-    - [Transmission(Linux下的BT下载工具)](#transmissionlinux下的bt下载工具)
-    - [一些命令行技巧](#一些命令行技巧)
-        - [C](#c)
-        - [H](#h)
-        - [P](#p)
-        - [S](#s)
+  - [Install Linux](#install-linux)
+  - [使用git自动部署代码到服务器](#%e4%bd%bf%e7%94%a8git%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2%e4%bb%a3%e7%a0%81%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8)
+    - [遇到的问题](#%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98)
+  - [系统备份与恢复](#%e7%b3%bb%e7%bb%9f%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d)
+    - [备份](#%e5%a4%87%e4%bb%bd)
+    - [恢复](#%e6%81%a2%e5%a4%8d)
+- [oh-my-zsh](#oh-my-zsh)
 
-<!-- /TOC -->
+  - [安装比较简单](#安装比较简单)
+  - [配置](#配置)
+- [WPS](#wps)
 
+  - [字体缺失问题解决](#字体缺失问题解决)
+- [screen](#screen)
+- [Tmux](#tmux)
+- [Anaconda](#anaconda)
+
+  - [基本操作](#基本操作)
+  - [一些问题](#一些问题)
+- [Transmission(Linux下的BT下载工具)](#transmissionlinux下的bt下载工具)
+- [解决Mendeley Linux下无法输入中文](#解决mendeley-linux下无法输入中文)
+- [一些命令行技巧](#一些命令行技巧)
+
+  - [C](#c)
+  - [H](#h)
+  - [P](#p)
+  - [S](#s)
+
+## Install Linux
+
+### 无法进入图形化界面(双显卡切换)
 ## Install Linux
 
 ### 无法进入图形化界面
@@ -52,7 +69,7 @@
 
 这是我使用过的最好用的终端，网上也有很多人推荐这个终端。
 
-#### 安装比较简单
+### 安装比较简单
 
 1. 首先确保联网并已经安装zsh和git，没有安装的话使用下面命令安装
 
@@ -71,11 +88,48 @@
     ```chsh -s /bin/zsh```
     
     再次输入密码即可完成。
-
-#### 配置
+### 配置
 
 oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件(没有的话新建即可)。
 
+## WPS
+
+在办公套件中，Microsoft office绝对是最好用的，可是无奈Linux下使用不了，那么就只好换WPS了（个人不太喜欢自带的liboffice）。
+
+### 字体缺失问题解决
+
+启动WPS for Linux后，出现提示"系统缺失字体" 。
+
+出现提示的原因是因为WPS for Linux没有自带windows的字体，只要在Linux系统中加载字体即可。
+
+具体操作步骤如下：
+
+1. 下载缺失的字体文件，然后复制到Linux系统中的/usr/share/fonts文件夹中。
+
+    国外下载地址：https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip
+
+    国内下载地址：https://pan.baidu.com/s/1eS6xIzo
+
+    （上述数据来源网络，侵删）
+
+    下载完成后，解压并进入目录中，继续执行：
+
+    ```sudo cp * /usr/share/fonts```
+
+2. 执行以下命令,生成字体的索引信息：
+
+    ```sudo mkfontscale```
+
+    ```sudo mkfontdir```
+
+3. 运行fc-cache命令更新字体缓存。
+
+    ```sudo fc-cache```
+
+4. 重启wps即可，字体缺失的提示不再出现。
+   
+> 参考文章
+> [WPS for Linux（ubuntu）字体配置(字体缺失解决办法)](https://www.cnblogs.com/liangml/p/5969404.html)
 ## screen
 screen是linux下的一种多重视窗管理程序。在远程登录Linux服务器进行操作时非常实用。在使用telnet或SSH远程登录linux时，如果连接非正常中断，正在运行的程序也会被杀死，重新连接时，系统将开一个新的session，无法恢复原来的session.screen命令可以解决这个问题。Screen工具是一个终端多路转接器，在本质上，这意味着你能够使用一个单一的终端窗口运行多终端的应用。
 
