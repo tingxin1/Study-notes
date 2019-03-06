@@ -35,9 +35,6 @@
 ## Install Linux
 
 ### 无法进入图形化界面(双显卡切换)
-## Install Linux
-
-### 无法进入图形化界面
 
 最近闲来无事又开始鼓捣Windows+Linux双系统，这次安装的是manjaro。毫无意外的又遇到了之前提到的无法进入图形化界面问题，但是这次在网上找到了正确的解决方案：
 
@@ -63,6 +60,79 @@
 
 ```sudo update-grub```
 
+在经过上述设置之后，笔记本使用的是inter的集显，在日常使用是的确是比独显省不少电，但是最近在做一些机器学习方面的东西，训练神经网络时想利用一下电脑上的N卡。在网上查阅资料后发现bumblebee支持指定程序使用N卡，使用方法很简单，只需要在命令前面加一个```optirun```就可以了。比如，我是用的是Python训练神经网络，在运行时需要输入命令：```optirun python filename```，这样在训练时就可以使用N卡了。
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+> 参考文章
+> [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
+
+### 安装CUDA以及cudnn
+
+CUDA、cudnn、显卡的驱动三者的版本号必须对应，具体操作应该先查看当前显卡型号并安装显卡驱动，之后根据显卡驱动的版本号找到其所[对应的CUDA版本](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html),然后根据所安装的CUDA版本选择对应的cudnn版本。
+
+> 参考文章
+> [Ubuntu18.04安装CUDA10、CUDNN](https://blog.csdn.net/qq_32408773/article/details/84112166)
+
+## 使用git自动部署代码到服务器
+
+> 参考文章[使用 Git 实现 项目的自动化部署](https://juejin.im/post/5d74569e5188253e547f504f)
+
+### 遇到的问题
+
+1. 配置好公钥后登录还是需要密码：
+
+   首先将公钥拷贝到服务器时尽量使用```ssh-copy-id -i ~/.ssh/id_rsa username@server_ip```
+
+   其次需要确认```~/.ssh```和```authorized_keys```的权限问题应该分别为700和600。
+
+## 系统备份与恢复
+
+### 备份
+
+linux秉承一切从文件出发的原则，备份系统就相当于将整个/(根目录)打包，使用下面的命令：
+
+```
+tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/tmp --exclude=/mnt --exclude=/run --exclude=/media / --warning=no-file-change
+```
+
+解释一下命令的意思：
+
+tar命令参数：
+
+-c： 新建一个备份文档
+
+-v： 显示详细信息
+
+-p： 保存权限，并应用到所有文件
+
+-z： 用gzip压缩备份文档，减小空间
+
+-f： 指定压缩包名称（带路径），只能做最后一个参数
+
+–exclude： 排除指定目录，不进行备份
+
+所排除的目录：
+/proc：一个虚拟文件系统，系统运行的每一个进程都会自动在这个目录下面创建一个进程目录。
+
+/tmp：一个临时文件夹，系统的一些临时文件会放在这里。
+
+/lost+found：系统发生错误时（比如非法关机），可以在这里找回一些丢失文件。
+
+/media：多媒体挂载点，像u盘、移动硬盘、windons分区等都会自动挂载到这个目录下。
+
+/mnt：临时挂载点，你可以自己挂载一些文件系统到这里。
+
+/run：系统从启动以来产生的一些信息文件。
+
+/backup.tgz：排除备份文件自身，否则会出现一些意想不到的问题。
+
+### 恢复
+
+=======
+>>>>>>> e006232 (optirun)
+>>>>>>> ac970d1 (optirun)
 > 参考文章
 > [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
 ## oh-my-zsh
