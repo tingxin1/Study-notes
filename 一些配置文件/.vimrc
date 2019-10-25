@@ -3,11 +3,11 @@
 set nocompatible
 set nu "显示行号"
 "隐藏滚动条"
-set guioptions-=r
-set guioptions-=L
-set guioptions-=b
+"set guioptions-=r
+"set guioptions-=L
+"set guioptions-=b
 
-colorscheme one
+colorscheme PaperColor
 set background=light
 
 set t_Co=256 "使得ssh可以显示vim主题颜色"
@@ -48,6 +48,7 @@ call vundle#end()
 filetype plugin indent on
 
 "YCM
+let g:ycm_key_list_stop_completion = ['<CR>']
 let g:ycm_semantic_triggers =  {
             \ 'c,cpp,python,java,go,erlang,perl': ['re!\w{2}'],
             \ 'cs,lua,javascript': ['re!\w{2}'],
@@ -59,6 +60,10 @@ let g:ycm_add_preview_to_completeopt = 0
 highlight PMenu ctermfg=0 ctermbg=242 guifg=black guibg=darkgrey
 highlight PMenuSel ctermfg=242 ctermbg=8 guifg=darkgrey guibg=black
 set backspace=indent,eol,start "解决后退键失效
+
+"ale
+let g:ale_set_highlights = 0
+
 "about python"
 set filetype=python
 au BufNewFile,BufRead *.py,*.pyw setf python
