@@ -1,12 +1,12 @@
 # 我所知道的Linux
 
 大学期间，免不了会接触Linux系统。我在大一就听老师提及，但是我的电脑硬件和Linux系统有些不兼容而且至今还没确定到底是哪的原因（可能是显卡，[已解决](#无法进入图形化界面)）。在经历过无数次折腾后（这期间我试了四五个我所知道的Linux发行版）我终于放弃了在物理机上装Linux而转用虚拟机和服务器。（说多了都是泪）
-<<<<<<< HEAD
-<<<<<<< HEAD
 <!-- TOC -->
 
 - [我所知道的Linux](#我所知道的linux)
   - [Install Linux](#install-linux)
+    - [无法进入图形化界面(双显卡切换)](#%e6%97%a0%e6%b3%95%e8%bf%9b%e5%85%a5%e5%9b%be%e5%bd%a2%e5%8c%96%e7%95%8c%e9%9d%a2%e5%8f%8c%e6%98%be%e5%8d%a1%e5%88%87%e6%8d%a2)
+    - [安装CUDA以及cudnn](#%e5%ae%89%e8%a3%85cuda%e4%bb%a5%e5%8f%8acudnn)
   - [使用git自动部署代码到服务器](#%e4%bd%bf%e7%94%a8git%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2%e4%bb%a3%e7%a0%81%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8)
     - [遇到的问题](#%e9%81%87%e5%88%b0%e7%9a%84%e9%97%ae%e9%a2%98)
   - [系统备份与恢复](#%e7%b3%bb%e7%bb%9f%e5%a4%87%e4%bb%bd%e4%b8%8e%e6%81%a2%e5%a4%8d)
@@ -34,35 +34,6 @@
   - [P](#p)
   - [S](#s)
 
-=======
-- [我所知道的Linux](#%e6%88%91%e6%89%80%e7%9f%a5%e9%81%93%e7%9a%84linux)
-=======
-- [我所知道的Linux](#我所知道的linux)
->>>>>>> f3be83f (add some)
-  - [Install Linux](#install-linux)
-    - [无法进入图形化界面(双显卡切换)](#无法进入图形化界面双显卡切换)
-    - [安装CUDA以及cudnn](#安装cuda以及cudnn)
-  - [系统备份与恢复](#系统备份与恢复)
-    - [备份](#备份)
-    - [恢复](#恢复)
-  - [oh-my-zsh](#oh-my-zsh)
-    - [安装比较简单](#安装比较简单)
-    - [配置](#配置)
-  - [WPS](#wps)
-    - [字体缺失问题解决](#字体缺失问题解决)
-  - [screen](#screen)
-  - [Tmux](#tmux)
-  - [Anaconda](#anaconda)
-    - [基本操作](#基本操作)
-    - [一些问题](#一些问题)
-  - [Transmission(Linux下的BT下载工具)](#transmissionlinux下的bt下载工具)
-  - [解决Mendeley Linux下无法输入中文](#解决mendeley-linux下无法输入中文)
-  - [一些命令行技巧](#一些命令行技巧)
-    - [C](#c)
-    - [H](#h)
-    - [P](#p)
-    - [S](#s)
->>>>>>> b6359de (more)
 ## Install Linux
 
 ### 无法进入图形化界面(双显卡切换)
@@ -92,9 +63,6 @@
 ```sudo update-grub```
 
 在经过上述设置之后，笔记本使用的是inter的集显，在日常使用是的确是比独显省不少电，但是最近在做一些机器学习方面的东西，训练神经网络时想利用一下电脑上的N卡。在网上查阅资料后发现bumblebee支持指定程序使用N卡，使用方法很简单，只需要在命令前面加一个```optirun```就可以了。比如，我是用的是Python训练神经网络，在运行时需要输入命令：```optirun python filename```，这样在训练时就可以使用N卡了。
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
 > 参考文章
 > [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
@@ -161,9 +129,6 @@ tar命令参数：
 
 ### 恢复
 
-=======
->>>>>>> e006232 (optirun)
->>>>>>> ac970d1 (optirun)
 > 参考文章
 > [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
 
@@ -173,6 +138,16 @@ CUDA、cudnn、显卡的驱动三者的版本号必须对应，具体操作应�
 > 参考文章
 > [Ubuntu18.04安装CUDA10、CUDNN](https://blog.csdn.net/qq_32408773/article/details/84112166)
 
+## 使用git自动部署代码到服务器
+
+>参考文章[使用 Git 实现 项目的自动化部署](https://juejin.im/post/5d74569e5188253e547f504f)
+
+### 遇到的问题
+1. 配置好公钥后登录还是需要密码：
+   
+   首先将公钥拷贝到服务器时尽量使用```ssh-copy-id -i ~/.ssh/id_rsa username@server_ip```
+
+   其次需要确认```~/.ssh```和```authorized_keys```的权限问题应该分别为700和600。
 ## 系统备份与恢复
 
 ### 备份
