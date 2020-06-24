@@ -31,5 +31,20 @@ https://zhuanlan.zhihu.com/p/25071913
 * 不要用基于动量的优化算法（包括momentum和Adam），推荐RMSProp，SGD也行
 
 3. 原始GAN的问题所在
+
+
+# docker 部署vpn
+
+1. 拉取image命令```docker pull hwdsl2/ipsec-vpn-server```
+2. 新建一个配置文件/etc/l2tp-env，内容如下
+
+    ```
+    VPN_IPSEC_PSK=abcdef
+    VPN_USER=ety001
+    VPN_PASSWORD=123456
+    ```
+3. 新建一个容器并运行
    
-   
+   ```
+   docker run --name ipsec-vpn-server --env-file /etc/l2tp-env --restart=always -p 500:500/udp -p 4500:4500/udp -v /lib/modules:/lib/modules:ro -d --privileged hwdsl2/ipsec-vpn-server
+   ```
