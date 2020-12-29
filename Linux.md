@@ -1,10 +1,23 @@
 # 我所知道的Linux
 
 大学期间，免不了会接触Linux系统。我在大一就听老师提及，但是我的电脑硬件和Linux系统有些不兼容而且至今还没确定到底是哪的原因（可能是显卡，[已解决](#无法进入图形化界面)）。在经历过无数次折腾后（这期间我试了四五个我所知道的Linux发行版）我终于放弃了在物理机上装Linux而转用虚拟机和服务器。（说多了都是泪）
+<<<<<<< HEAD
 <!-- TOC -->
+=======
+>>>>>>> e9899fe (delete pdf)
 
 - [我所知道的Linux](#我所知道的linux)
+
   - [Install Linux](#install-linux)
+<<<<<<< HEAD
+=======
+    - [无法进入图形化界面(双显卡切换)](#无法进入图形化界面双显卡切换)
+    - [安装CUDA以及cudnn](#安装cuda以及cudnn)
+  - [系统备份与恢复](#系统备份与恢复)
+    - [备份](#备份)
+    - [恢复](#恢复)
+      =============
+>>>>>>> e9899fe (delete pdf)
     - [无法进入图形化界面(双显卡切换)](#%e6%97%a0%e6%b3%95%e8%bf%9b%e5%85%a5%e5%9b%be%e5%bd%a2%e5%8c%96%e7%95%8c%e9%9d%a2%e5%8f%8c%e6%98%be%e5%8d%a1%e5%88%87%e6%8d%a2)
     - [安装CUDA以及cudnn](#%e5%ae%89%e8%a3%85cuda%e4%bb%a5%e5%8f%8acudnn)
   - [使用git自动部署代码到服务器](#%e4%bd%bf%e7%94%a8git%e8%87%aa%e5%8a%a8%e9%83%a8%e7%bd%b2%e4%bb%a3%e7%a0%81%e5%88%b0%e6%9c%8d%e5%8a%a1%e5%99%a8)
@@ -64,6 +77,7 @@
 
 在经过上述设置之后，笔记本使用的是inter的集显，在日常使用是的确是比独显省不少电，但是最近在做一些机器学习方面的东西，训练神经网络时想利用一下电脑上的N卡。在网上查阅资料后发现bumblebee支持指定程序使用N卡，使用方法很简单，只需要在命令前面加一个```optirun```就可以了。比如，我是用的是Python训练神经网络，在运行时需要输入命令：```optirun python filename```，这样在训练时就可以使用N卡了。
 
+<<<<<<< HEAD
 > 参考文章
 > [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
 
@@ -129,33 +143,40 @@ tar命令参数：
 
 ### 恢复
 
+=======
+>>>>>>> e9899fe (delete pdf)
 > 参考文章
 > [Manjaro Linux 配置Intel与Nvidia双显卡切换](https://mtaoist.xyz/2018/03/19/Bumblebee/)
 
 ### 安装CUDA以及cudnn
 
 CUDA、cudnn、显卡的驱动三者的版本号必须对应，具体操作应该先查看当前显卡型号并安装显卡驱动，之后根据显卡驱动的版本号找到其所[对应的CUDA版本](https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html),然后根据所安装的CUDA版本选择对应的cudnn版本。
+
 > 参考文章
 > [Ubuntu18.04安装CUDA10、CUDNN](https://blog.csdn.net/qq_32408773/article/details/84112166)
 
 ## 使用git自动部署代码到服务器
 
->参考文章[使用 Git 实现 项目的自动化部署](https://juejin.im/post/5d74569e5188253e547f504f)
+> 参考文章[使用 Git 实现 项目的自动化部署](https://juejin.im/post/5d74569e5188253e547f504f)
 
 ### 遇到的问题
+
 1. 配置好公钥后登录还是需要密码：
-   
+
    首先将公钥拷贝到服务器时尽量使用```ssh-copy-id -i ~/.ssh/id_rsa username@server_ip```
 
    其次需要确认```~/.ssh```和```authorized_keys```的权限问题应该分别为700和600。
+
 ## 系统备份与恢复
 
 ### 备份
 
 linux秉承一切从文件出发的原则，备份系统就相当于将整个/(根目录)打包，使用下面的命令：
+
 ```
 tar cvpzf backup.tgz --exclude=/proc --exclude=/lost+found --exclude=/backup.tgz --exclude=/tmp --exclude=/mnt --exclude=/run --exclude=/media / --warning=no-file-change
 ```
+
 解释一下命令的意思：
 
 tar命令参数：
@@ -189,7 +210,6 @@ tar命令参数：
 
 ### 恢复
 
-
 ## oh-my-zsh
 
 这是我使用过的最好用的终端，网上也有很多人推荐这个终端。
@@ -198,21 +218,26 @@ tar命令参数：
 
 1. 首先确保联网并已经安装zsh和git，没有安装的话使用下面命令安装
 
-    ```sudo apt install zsh git -y```   #For Ubuntu/Debian
+   ```sudo apt install zsh git -y```   #For Ubuntu/Debian
 
-    ```sudo yum install zsh git -y```   #For Centos
-
+   ```sudo yum install zsh git -y```   #For Centos
 2. 从GitHub上下载并启用oh-my-zsh
 
-    ```sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"```
+   ```sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"```
 
-    启用时需要输入一下用户密码。
-
+   启用时需要输入一下用户密码。
 3. 设置oh-my-zsh为默认终端
 
+<<<<<<< HEAD
     ```chsh -s /bin/zsh```
     
     再次输入密码即可完成。
+=======
+   ```chsh -s /bin/zsh```
+
+   再次输入密码即可完成。
+
+>>>>>>> e9899fe (delete pdf)
 ### 配置
 
 oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件(没有的话新建即可)。
@@ -231,28 +256,25 @@ oh-my-zsh的配置只需要修改 _~/.zshrc_ 文件(没有的话新建即可)。
 
 1. 下载缺失的字体文件，然后复制到Linux系统中的/usr/share/fonts文件夹中。
 
-    国外下载地址：https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip
+   国外下载地址：https://www.dropbox.com/s/lfy4hvq95ilwyw5/wps_symbol_fonts.zip
 
-    国内下载地址：https://pan.baidu.com/s/1eS6xIzo
+   国内下载地址：https://pan.baidu.com/s/1eS6xIzo
 
-    （上述数据来源网络，侵删）
+   （上述数据来源网络，侵删）
 
-    下载完成后，解压并进入目录中，继续执行：
+   下载完成后，解压并进入目录中，继续执行：
 
-    ```sudo cp * /usr/share/fonts```
-
+   ```sudo cp * /usr/share/fonts```
 2. 执行以下命令,生成字体的索引信息：
 
-    ```sudo mkfontscale```
+   ```sudo mkfontscale```
 
-    ```sudo mkfontdir```
-
+   ```sudo mkfontdir```
 3. 运行fc-cache命令更新字体缓存。
 
-    ```sudo fc-cache```
-
+   ```sudo fc-cache```
 4. 重启wps即可，字体缺失的提示不再出现。
-   
+
 > 参考文章
 > [WPS for Linux（ubuntu）字体配置(字体缺失解决办法)](https://www.cnblogs.com/liangml/p/5969404.html)
 
@@ -287,7 +309,7 @@ screen是linux下的一种多重视窗管理程序。在远程登录Linux服务�
 
 tumx和screen一样是一个终端复用神器（terminal multiplexer).
 
->参考文章 [Tmux 使用教程](http://www.ruanyifeng.com/blog/2019/10/tmux.html)
+> 参考文章 [Tmux 使用教程](http://www.ruanyifeng.com/blog/2019/10/tmux.html)
 
 ## Anaconda
 
@@ -295,14 +317,15 @@ tumx和screen一样是一个终端复用神器（terminal multiplexer).
 
 - 安装Anaconda直接从官网下载安装包安装即可。安装完成后需要配置一下环境变量，在～/.bashrc(如果用zsh的话，修改～/.zshrc)中添加下面一句
 
-    ```export PATH=/home/username/anaconda3/bin:$PATH```
+  ```export PATH=/home/username/anaconda3/bin:$PATH```
 
-    注意修改**username**为自己的用户名。另外上面那一句不能写成export PATH=\$PATH:/home/lishanliao/anaconda3/bin,因为这样的话虽然是把Anaconda的路径加了进去，在系统搜索命令时，是先搜索\$PATH的路径，再搜索‘/home/lishanliao/anaconda3/bin’这部分路径，如果在\$PATH路径中有其他版本的python(例如Python2.7)，那么就不会执行Anaconda了。之后在终端运行下面的命令更新配置文件。
+  注意修改**username**为自己的用户名。另外上面那一句不能写成export PATH=\$PATH:/home/lishanliao/anaconda3/bin,因为这样的话虽然是把Anaconda的路径加了进去，在系统搜索命令时，是先搜索\$PATH的路径，再搜索‘/home/lishanliao/anaconda3/bin’这部分路径，如果在\$PATH路径中有其他版本的python(例如Python2.7)，那么就不会执行Anaconda了。之后在终端运行下面的命令更新配置文件。
 
-    ```source ~/.bashrc```或者```source ~/.zshrc```
+  ```source ~/.bashrc```或者```source ~/.zshrc```
 - 添加Anaconda镜像
-  
+
   添加国内镜像可以让我们下载软件的速度快很多，一般添加[清华的镜像](https://mirror.tuna.tsinghua.edu.cn/help/anaconda/)，修改～/.condarc文件，在其中加入下面内容:
+
   ```
   channels:
   - defaults
@@ -317,103 +340,106 @@ tumx和screen一样是一个终端复用神器（terminal multiplexer).
   menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
   ```
-
 - 创建一个名为env_name的环境，指定Python版本是3.*（不用管是3.*.x，conda会为我们自动寻找3.*.x中的最新版本）
 
-    ```conda create --name env_name python=3.*```
- 
+  ```conda create --name env_name python=3.*```
 - 创建完环境后，使用activate激活某个环境
 
-    ```activate env_name``` # for Windows
+  ```activate env_name``` # for Windows
 
-    ```conda activate env_name``` # for Linux & Mac
+  ```conda activate env_name``` # for Linux & Mac
 
-    激活后，会发现terminal输入的地方多了python3\*的字样，实际上，此时系统做的事情就是把默认Python环境（例如Python2.7）从PATH中去除，再把3.\*对应的命令加入PATH.
-    此时，再次输入
+  激活后，会发现terminal输入的地方多了python3\*的字样，实际上，此时系统做的事情就是把默认Python环境（例如Python2.7）从PATH中去除，再把3.\*对应的命令加入PATH.
+  此时，再次输入
 
-    ```python --version```
+  ```python --version```
 
-    可以得到*Python 3.\*.\* :: Anaconda 4.\*.\* (64-bit)*，即系统已经切换到了3.*的环境
-
+  可以得到*Python 3.\*.\* :: Anaconda 4.\*.\* (64-bit)*，即系统已经切换到了3.*的环境
 - 如果想返回默认的python环境，运行
 
-    ```deactivate env_name``` # for Windows
+  ```deactivate env_name``` # for Windows
 
-    ```conda deactivate env_name``` # for Linux & Mac
+  ```conda deactivate env_name``` # for Linux & Mac
 - 复制已有的环境
   https://blog.csdn.net/shincling/article/details/75534121
- 
 - 删除一个已有的环境
 
-    ```conda remove --name python34 --all```
+  ```conda remove --name python34 --all```
 
 ### 一些问题
-  
+
 1. 在某一步conda可能会让你运行```conda init```命令，这是初始话conda默认环境，在这之后你的终端可能会多出(base)字样，如果你不习惯可以在终端运行
-   
-    ```conda config --set auto_activate_base false```
+
+   ```conda config --set auto_activate_base false```
 
 ## Transmission(Linux下的BT下载工具)
 
 Transmission 是最流行的基于图形界面的 BitTorrent 客户端之一。transmission-cli 是它的简装的命令行版本。
+
 - centos安装
 
-    ```sudo yum install transmission-cli```
+  ```sudo yum install transmission-cli```
 - 使用
-    
-    transmission-cli的使用非常简单。如果你懒于学习它的命令行选项，所有你要做的事情就是下载 .torrent 文件并运行命令。这会自动寻找可用的种子并从那里下载 ISO 文件。
-    
-    示例代码如下:
 
-    ```
-    $ wget http://releases.ubuntu.com/14.10/ubuntu-14.10-desktop-amd64.iso.torrent
-    $ transmission-cli ubuntu-14.10-desktop-amd64.iso.torrent
-    ```
+  transmission-cli的使用非常简单。如果你懒于学习它的命令行选项，所有你要做的事情就是下载 .torrent 文件并运行命令。这会自动寻找可用的种子并从那里下载 ISO 文件。
+
+  示例代码如下:
+
+  ```
+  $ wget http://releases.ubuntu.com/14.10/ubuntu-14.10-desktop-amd64.iso.torrent
+  $ transmission-cli ubuntu-14.10-desktop-amd64.iso.torrent
+  ```
+
 ## 解决Mendeley Linux下无法输入中文
 
 https://www.findhao.net/easycoding/2287.html
 
 ## 一些命令行技巧
 
-### C 
+### C
+
 1. curl ifconfig.me
 
-    如何在终端获得外部IP地址呢？这个命令就可以在你的终端显示你的外部IP地址。
+   如何在终端获得外部IP地址呢？这个命令就可以在你的终端显示你的外部IP地址。
 
 ### H
- 1. history命令
 
-    history命令用于显示指定数目的指令命令，读取历史命令文件中的目录到历史命令缓冲区和将历史命令缓冲区中的目录写入命令文件。历史命令是被保存在内存中的，当退出或者登录shell时，会自动保存或读取。在内存中，历史命令仅能够存储1000条历史命令，该数量是由环境变量HISTSIZE进行控制。
+1. history命令
 
-    在命令行中使用时，可以使用 **!** 来显示指定的历史命令，例如：
-    
-    ```!521``` ：显示历史命令中的第521条命令
-   
-    ```!!``` ：重复执行上一条命令（这就与最前面的**sudo!!** 对应上了）
-   
-    ```!str```：执行以str开头的命令（最后一个）
+   history命令用于显示指定数目的指令命令，读取历史命令文件中的目录到历史命令缓冲区和将历史命令缓冲区中的目录写入命令文件。历史命令是被保存在内存中的，当退出或者登录shell时，会自动保存或读取。在内存中，历史命令仅能够存储1000条历史命令，该数量是由环境变量HISTSIZE进行控制。
 
-    history其他使用语法为：```history(option)(parameter)```
+   在命令行中使用时，可以使用 **!** 来显示指定的历史命令，例如：
 
-    option: 
-    
-    -c：清空当前历史命令。
-    
-    -a：将历史命令缓冲区中的命令写入历史命令文件中。
+   ```!521``` ：显示历史命令中的第521条命令
 
-    -r：将历史文件中的命令杜如当前历史命令缓冲区。
+   ```!!``` ：重复执行上一条命令（这就与最前面的**sudo!!** 对应上了）
 
-    -w： 将当前历史命令缓冲区命令写入历史命令文件中。
+   ```!str```：执行以str开头的命令（最后一个）
 
-    parameter： 
+   history其他使用语法为：```history(option)(parameter)```
 
-    n：打印最近的n条历史命令
+   option:
+
+   -c：清空当前历史命令。
+
+   -a：将历史命令缓冲区中的命令写入历史命令文件中。
+
+   -r：将历史文件中的命令杜如当前历史命令缓冲区。
+
+   -w： 将当前历史命令缓冲区命令写入历史命令文件中。
+
+   parameter：
+
+   n：打印最近的n条历史命令
 
 ### P
+
 1. pv命令
 
-    Pipe Viewer工具监控通过管道的数据的进度信息, 已消耗的时间, 进度条显示的完成百分比, 当前管道的吞吐量, 已传输的数据量, 预计完成的时间等。详见：[利用pv命令监视数据的处理进度](https://www.jianshu.com/p/64becdd8927c)
+   Pipe Viewer工具监控通过管道的数据的进度信息, 已消耗的时间, 进度条显示的完成百分比, 当前管道的吞吐量, 已传输的数据量, 预计完成的时间等。详见：[利用pv命令监视数据的处理进度](https://www.jianshu.com/p/64becdd8927c)
+
 ### S
+
 1. sudo!! 命令
 
     一些命令需要特殊的权限才能执行，忘记输sudo，会因权限不足而无法执行。在一些命令很长的情况下，再次输入整条命令会很麻烦，这时可以输入``` sudo!! ```.这样，你不需要重写整个命令，仅仅输入'!!'就可以抓取最后的命令。（当然你也可以使用方向键中的上键来回到上一条命令并在行首加上sudo。）
